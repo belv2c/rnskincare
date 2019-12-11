@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet, Button, Image } from 'react-native'
 import { connect } from 'react-redux'
 import Firebase from '../config/Firebase'
 
@@ -12,8 +12,9 @@ class Profile extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Profile Screen</Text>
-                <Text>{this.props.user.email}</Text>
+                <Text>Hello {this.props.user.email}</Text>
+                <Image style={styles.profilePic} source={require('../assets/brooke.jpg')} />
+                <Button title='Edit Profile' />
                 <Button title='Logout' onPress={this.handleSignout} />
             </View>
         )
@@ -26,7 +27,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
+    profilePic: {
+        width: 100,
+        height: 100,
+        borderRadius: 100 / 2,
+        marginBottom: 250
+      },
 })
 
 const mapStateToProps = state => {
