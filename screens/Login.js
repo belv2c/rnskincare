@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TextInput, StyleSheet, TouchableOpacity, Text, Button } from 'react-native'
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, Button, Image } from 'react-native'
 import Firebase from '../config/Firebase'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -20,6 +20,7 @@ class Login extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+            <Image style={styles.logo} source={require('../assets/logo.png')} />
                 <TextInput
                     style={styles.inputBox}
                     value={this.props.user.email}
@@ -51,6 +52,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    logo: {
+        margin: 20,
+        width: 300,
+        height: 375
     },
     inputBox: {
         width: '85%',
